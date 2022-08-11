@@ -10,10 +10,12 @@ const Home = () => {
 	const { store, actions } = useContext(Context);
 	useEffect(()=>{
 		actions.getCharacters() 
+		actions.getLocation()
+		actions.getEpisode()
 	},[])
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid cardscharacters">
 	    <CardContainer/>
 		</div>
 		// <div className="">
