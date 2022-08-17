@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       characters: [],
       Singlecharacter: [],
+      SingleLocation:{},
+      SingleEpisode:{},
       result: {},
       Location: [],
       Episode: [],
@@ -57,12 +59,55 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then(response => response.json())
             .then(data => setStore({ Location: data.results }));
       },
+      getSingleLocation: async (id) => {
+        await fetch('https://rickandmortyapi.com/api/location/' + id, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(resp => {
+            console.log(resp);
+            return resp.json(); // (regresa una promesa) will try to parse the result as json as return a promise that you can .then for results
+            
+          })
+          .then(data => {
+            setStore({ SingleLocation: data })
+            console.log(data); //esto imprimirá en la consola el objeto exacto recibido del servidor
+
+          })
+          .catch(error => {
+            //manejo de errores
+            console.log(error);
+          });
+      },
       getEpisode: async () => {
         await
           fetch("https://rickandmortyapi.com/api/episode")
             .then(response => response.json())
             .then(data => setStore({ Episode: data.results }));
       },
+      getSingleEpisode: async (id) => {
+        await fetch('https://rickandmortyapi.com/api/episode/' + id, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(resp => {
+            return resp.json(); // (regresa una promesa) will try to parse the result as json as return a promise that you can .then for results
+          })
+          .then(data => {
+            setStore({ SingleEpisode: data })
+            console.log(data); //esto imprimirá en la consola el objeto exacto recibido del servidor
+
+          })
+          .catch(error => {
+            //manejo de errores
+            console.log(error);
+          });
+      },
+
 
     },
   };

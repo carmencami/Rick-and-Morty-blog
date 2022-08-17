@@ -15,7 +15,7 @@ const Home = () => {
 	},[])
 
 	return (
-		<div className="container-fluid cardscharacters">
+		<div className="container-fluid ">
 	    <CardContainer/>
 		</div>
 		// <div className="">
