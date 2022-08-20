@@ -2,15 +2,15 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import Home  from "./views/home.js";
+import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import  SingleCharacter  from "./views/single.js";
-import  SingleEpisode  from "./views/singleepisode.js";
-import  SingleLocation  from "./views/singlelocation.js";
+import Single  from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import  Footer  from "./component/footer.js";
+import Detail  from "./views/detail";
+
 
 
 //create your first component
@@ -31,19 +31,15 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:id">
-							<SingleCharacter />
+						<Route exact path="/single/:theid">
+							<Single />
 						</Route>
-						<Route exact path="/singleepisode/:id">
-							<SingleEpisode />
-						</Route>
-						<Route exact path="/singlelocation/:id">
-							<SingleLocation />
+						<Route exact path="/detail/:category/:theid">
+							<Detail />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
-
 					</Switch>
 					<Footer />
 				</ScrollToTop>

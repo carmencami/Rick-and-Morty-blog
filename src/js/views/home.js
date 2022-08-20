@@ -1,30 +1,34 @@
-import React, { useEffect, useContext } from "react";
-
-import cards from "../component/cards.js";
-import CardContainer from "../component/CardsContainer.js";
+import React, { useContext } from "react";
 import "../../styles/home.css";
+import Cards from "../component/cards";
 import { Context } from "../store/appContext";
 
-const Home = () => {
-
+export const Home = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(()=>{
-		actions.getCharacters() 
-		actions.getLocation()
-		actions.getEpisode()
-	},[])
-
 	return (
-		<div className="container-fluid ">
-	    <CardContainer/>
+		<div className="container testimonial-group">
+			<h1 className="categoryData">Characters</h1>
+			<div className="row">
+				{store.character
+					? store.character.map((value, index) => {
+							return <Cards key={index} value={value} image={value.image} index={index} category={"characters"} />;
+					  })
+					: ""}
+			</div>
+			<h1 className="categoryData">Location</h1>
+			<div className="row">
+				{store.location
+					? store.location.map((value, index) => {
+							return <Cards key={index} value={value} index={index} category={"location"} />;
+					  })
+					: ""}
+			</div>
 		</div>
-		// <div className="">
-		//     <CardsContainer/>
-		//     <CardsContainer/>
-		// </div>
 	);
 };
+
 export default Home;
+
 
 
 

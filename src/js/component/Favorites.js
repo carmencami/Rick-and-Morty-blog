@@ -27,9 +27,9 @@ const Favorites = props => {
 					}):
 					 <li className="star-text py-2">Empty</li>
 					}
-					<li className="bg-star star-text">Planets</li>
-					{store.favoritePlans.length != 0 ?
-					store.favoritePlans.map((element, index)=>{
+					<li className="bg-star star-text">Location</li>
+					{store.favoriteLoc.length != 0 ?
+					store.favoriteLoc.map((element, index)=>{
 						return(
 							<div className="col-12 d-flex justify-content-between bg-star" key={index}>
 								<li className="list-group-item d-flex justify-content-between bg-star star-text">{element.name} </li>
