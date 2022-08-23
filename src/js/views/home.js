@@ -10,8 +10,8 @@ export const Home = () => {
 			<h1 className="categoryData">Characters</h1>
 			<div className="row">
 				{store.character
-					? store.character.map((value, index) => {
-							return <Cards key={index} value={value} image={value.image} index={index} category={"characters"} />;
+					? store.character.map((value) => {
+							return <Cards key={value.id} value={value} image={value.image} index={value.id} category={"character"} />;
 					  })
 					: ""}
 			</div>

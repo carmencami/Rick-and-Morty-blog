@@ -1,11 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import CharactersDetail  from "../component/details/character";
-import LocationDetail from "../component/details/location";
+import { Location } from "../component/details/location";
 
-
-const Detail = () => {
+const DetailLocation = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	console.log(params)
@@ -13,16 +11,14 @@ const Detail = () => {
 		actions.loadInfoData(params.category, params.theid);
 	}, []);
 	const getcomponentByCategory = category => {
-		if (category == "character") {
-			return <CharactersDetail value={store.result} />;
-} else if (category== "location") {
-	return <LocationDetail value={store.result}/>;
-}
-	}
+	    if (category == "location") {
+			return <LocationDetail value={store.result.properties} />;
+	};
+};
 	return (
 		<div className="container">
-			<h1>{store.result ? store.result.name : ""}</h1>
-			<img className="rounded mx-auto d-block" src="" />
+			<h1>{store.result.properties ? store.result.properties.name : ""}</h1>
+			<img className="rounded mx-auto d-block" src="https://th.bing.com/th/id/R.cbf86e42d4dabbd07069b35e42e8c062?rik=oX4Ly63EEvERCw&riu=http%3a%2f%2fi1.kym-cdn.com%2fphotos%2fimages%2foriginal%2f000%2f692%2f455%2ff16.gif&ehk=ezAIvUC1ALr0YAkxLzlLl3D4JSP8dUhJcY7TTP%2ft%2fBk%3d&risl=&pid=ImgRaw&r=0" />
 			<br />
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat sodales leo, id feugiat metus
@@ -42,4 +38,4 @@ const Detail = () => {
 	);
     };
     
-export default Detail;
+export default DetailLocation;

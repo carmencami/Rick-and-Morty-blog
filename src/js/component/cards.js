@@ -12,10 +12,11 @@ const Cards = props => {
 			actions.favorites(props.category, props.value);
 		}
 	};
+	console.log(props.category)
 
 	return (
 		<div key={props.index} className="card" style={{ width: "18rem" }}>
-			{props.value.image ? (<img src={props.image} className="card-img-top" alt="..."/>):(<img src="https://th.bing.com/th/id/OIP.0ku1AvUo__-ohxH4EqTXOAHaEo?pid=ImgDet&rs=1" className="card-img-top" alt="..."/>) }
+			{props.value.image ? (<img src={props.image} className="card-img-top" alt="..."/>):(<img src="https://lh5.googleusercontent.com/proxy/wO-IdIXh2YDqJklLHYG9mbOKMFWMIg4VC4AtIdh-3rjypt0NtyVcRyV_aaIhRMv4xyGrvFDlmocpc0XOUNZrpV6Ny14uCewVMhiunQwR8n5Qg76IxW_a6wGAKCixAygfEGIC5bM08jm1Ci41PFqf_ympLkrfMmYW9rxq92gcMzQM=w1200-h630-p-k-no-nu" className="card-img-top" alt="..."/>) }
 			<div className="card-body">
 				<h5 className="card-title">{props.value.name}</h5>
 				<ul className="card-body">Name: {props.value.name}</ul>

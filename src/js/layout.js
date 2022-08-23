@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import  Footer  from "./component/footer.js";
 import Detail  from "./views/detail";
+import DetailLocation  from "./views/detail";
 
 
 
@@ -34,7 +35,7 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-						<Route exact path="/detail/:category/:theid">
+						<Route exact path="/details/:category/:theid">
 							<Detail />
 						</Route>
 						<Route>

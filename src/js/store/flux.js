@@ -62,9 +62,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ location: data.results }));
 			},
 			loadInfoData: (category, id) => {
-				fetch("https://rickandmortyapi.com/api" + category + "/" + id)
+				fetch("https://rickandmortyapi.com/api/" + category + "/" + id)
 					.then(response => response.json())
-					.then(data => setStore({ result: data.result }));
+					.then(data => setStore({ result: data }));
 			},
 			changeColor: (index, color) => {
 				//get the store
